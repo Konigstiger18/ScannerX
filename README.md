@@ -1,7 +1,7 @@
 1) Ports and Whois Scan (Option 1):
 Prompts the user to enter the IP or URL of the target.
 Performs a port scan using Nmap on the specified target.
-Optionally, retrieves and displays Whois information for the target.
+Optionally, retrieves and displays Whois information for the target.è
 
 The whois module in Python provides various pieces of information when executing the whois.whois(target) function. Here are some common pieces of information that can be obtained through the whois module:
 
