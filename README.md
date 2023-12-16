@@ -43,7 +43,7 @@ Runs a Nikto scan on the specified target to identify potential vulnerabilities.
 Prompts the user to enter the IP or URL of the target.
 Executes a SQLmap scan on the specified target to detect SQL injection vulnerabilities.
 
-DNS Amplification Scan (Option 4):
+4) DNS Amplification Scan (Option 4):
  Prompts the user to enter the domain to query.
  Performs automatized DNS queries using Metasploit for various record types (A, NS, SOA, MX, TXT, AAAA, RRSIG, DNSKEY, ANY).
 
