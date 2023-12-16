@@ -5,22 +5,22 @@ Optionally, retrieves and displays Whois information for the target.
 
 The whois module in Python provides various pieces of information when executing the whois.whois(target) function. Here are some common pieces of information that can be obtained through the whois module:
 
- IP Address:
+   IP Address:
         The IP address of the website associated with the domain.
 
- Hosting Location:
+   Hosting Location:
         Hosting location, which may include city, region, and country.
 
-  Registrar:
+   Registrar:
         The entity with which the domain is registered.
 
- Registrar Abuse Email:
+   Registrar Abuse Email:
         The email address associated with reporting abuse to the registrar.
 
-  Registrant Email:
+   Registrant Email:
         The email address of the domain registrant.
 
- Creation Date:
+   Creation Date:
         The date when the domain was created.
 
    Expiration Date:
@@ -29,10 +29,10 @@ The whois module in Python provides various pieces of information when executing
    Cloudflare:
         Indicates whether the website uses Cloudflare for protection.
 
-Name Servers:
+   Name Servers:
         A list of name servers associated with the domain.
 
- Status:
+   Status:
         The current status of the domain, such as active, inactive, etc.
 
 2) Nikto Scan (Option 2):
