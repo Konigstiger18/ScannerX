@@ -55,7 +55,3 @@ Fetches and displays information about the target domain, including login pages,
 Exits the program.
 If ProtonVPN was activated at the beginning, it also deactivates ProtonVPN.
 
-
-
-
-COMING SOON!!!
