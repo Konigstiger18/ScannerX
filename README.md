@@ -1,4 +1,31 @@
-1) Ports and Whois Scan (Option 1):
+Requirements:
+For Debian/Ubuntu/Kali Linux:
+
+    sudo apt update
+    sudo apt install python
+    pip install python-nmap
+    pip install python-whois
+    pip install requests
+    pip install beautifulsoup4
+    pip install tldextract
+    pip install colorama
+    pip install pyfiglet
+
+For Arch Linux:
+
+    sudo pacman -Syu
+    sudo pacman -S python
+    pip install python-nmap
+    pip install python-whois
+    pip install requests
+    pip install beautifulsoup4
+    pip install tldextract
+    pip install colorama
+    pip install pyfiglet
+
+ScannerX Tool Description:
+
+ 1) Ports and Whois Scan (Option 1):
 Prompts the user to enter the IP or URL of the target.
 Performs a port scan using Nmap on the specified target.
 Optionally, retrieves and displays Whois information for the target.
