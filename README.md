@@ -24,7 +24,7 @@ For Arch Linux:
     pip install colorama
     pip install pyfiglet
 
-ScannerX Tool Description:
+ScannerX Framework Description:
 
  1) Ports and Whois Scan (Option 1):
 Prompts the user to enter the IP or URL of the target.
