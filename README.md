@@ -83,4 +83,3 @@ Fetches and displays information about the target domain, including login pages,
 Exits the program.
 If ProtonVPN was activated at the beginning, it also deactivates ProtonVPN.
 
-If you want support my project: https://www.paypal.me/konig18?locale.x=it_IT
