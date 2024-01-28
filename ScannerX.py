@@ -10,6 +10,9 @@ import random
 import tldextract
 from colorama import Fore, Style
 from pyfiglet import figlet_format
+import dns.resolver
+from concurrent.futures import ThreadPoolExecutor
+
 
 # Definizione dei codici di colore ANSI
 GREEN = "\033[92m"
@@ -323,6 +326,53 @@ def generate_random_query():
     query = f"{random.choice(parameters)}={random.choice(values)}"
     return query
 
+def cerca_dominio(nome_dominio):
+    estensioni = [
+        # Generiche
+        ".com", ".net", ".org", ".gov", ".edu", ".biz", ".info", ".name", ".pro", ".mobi", ".int", ".coop", ".aero", ".travel",
+
+        # Nazionali
+        ".it", ".fr", ".es", ".de", ".uk", ".us", ".ca", ".au", ".jp", ".cn", ".br", ".ru",
+        ".in", ".mx", ".nl", ".nz", ".se", ".ch", ".za", ".ae", ".sa", ".ar", ".id", ".tr",
+
+        # Tech
+        ".io", ".ai", ".app", ".dev", ".tech", ".systems", ".web", ".software", ".code", ".data", ".network", ".cloud",
+
+        # Contenuto
+        ".blog", ".news", ".info", ".media", ".tv", ".movie", ".music", ".gaming", ".art", ".photo", ".gallery", ".studio",
+
+        # Commercio
+        ".store", ".shop", ".market", ".online", ".sale", ".buy", ".discount", ".shop", ".fashion", ".jewelry", ".food", ".restaurant",
+
+        # Professionali
+        ".guru", ".expert", ".consulting", ".lawyer", ".doctor", ".engineer", ".architect", ".accountant",
+        ".dentist", ".realty", ".consultant", ".coach", ".therapy", ".training", ".education", ".academy",
+
+        # Altre
+        ".co", ".me", ".xyz", ".space", ".club", ".live", ".link", ".social", ".design", ".events", ".travel", ".party", ".golf",
+        ".fitness", ".photography", ".blog", ".gaming", ".family", ".pet", ".science", ".green", ".eco",
+    ]
+
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = [executor.submit(verifica_dominio, f"{nome_dominio}{estensione}") for estensione in estensioni]
+
+    for future in futures:
+        future.result()
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = [executor.submit(verifica_dominio, f"{nome_dominio}{estensione}") for estensione in estensioni]
+
+    for future in futures:
+        future.result()
+        
+def verifica_dominio(dominio):
+    try:
+        answers = dns.resolver.resolve(dominio, 'A')
+        print(f"The domain {dominio} is {Fore.GREEN}registered{Fore.RESET}.")
+    except dns.resolver.NXDOMAIN:
+        print(f"The domain {dominio} is {Fore.RED}available{Fore.RESET}.")
+    except dns.exception.DNSException:
+        print(f"{Fore.RED}Error{Fore.RESET} verifying domain {dominio}.")
 
 def show_menu():
     print("Menu:")
@@ -331,12 +381,13 @@ def show_menu():
     print(f"{RED}3. SQL Injection{RESET}")
     print(f"{RED}4. DNS Amplification Scan{RESET}")
     print(f"{RED}5. Analyze Target Domain Info{RESET}")  
+    print(f"{RED}6. Osint Domain For Extension{RESET}")
     print(f"{RED}99. Exit{RESET}")
 
 
 def main():
     if ask_activate_protonvpn():
-        # ProtonVPN è stato attivato, puoi eseguire azioni aggiuntive qui, se necessario.
+        # ProtonVPN is activated, you can perform additional actions here if needed.
         pass
 
     while True:
@@ -361,12 +412,16 @@ def main():
                 target_domain = input("Enter the domain to query: ")
                 query_types = ['A', 'NS', 'SOA', 'MX', 'TXT', 'AAAA', 'RRSIG', 'DNSKEY', 'ANY']
                 dns_query_with_metasploit(target_domain, query_types)
-            elif option == 5:  # Nuova opzione per analizzare le informazioni sul dominio di destinazione
+            elif option == 5:  
                 target_domain_url = input("Enter the target domain: ").strip()
                 analyze_target_domain_info(target_domain_url)
+            elif option == 6:
+                nome_dominio = input("Enter the domain name (without protocol and extension): " )
+                print(f"{ORANGE}Results:{RESET}")
+                cerca_dominio(nome_dominio)
             elif option == 99:
                 print("Exiting program.")
-                deactivate_protonvpn()  # Chiamata alla funzione per disattivare ProtonVPN
+                deactivate_protonvpn()  
                 break
             else:
                 print(f"{RED}Invalid option. Please choose a valid option.{RESET}")
