@@ -2,27 +2,35 @@ Requirements:
 
 For Debian/Ubuntu/Kali Linux:
 
-    sudo apt update
-    sudo apt install python
-    pip install python-nmap
-    pip install python-whois
-    pip install requests
-    pip install beautifulsoup4
-    pip install tldextract
-    pip install colorama
-    pip install pyfiglet
+    sudo apt-get update
+    sudo apt-get install nmap
+    sudo apt-get install python3
+    sudo apt-get install python3-pip
+    pip3 install nmap
+    pip3 install whois
+    pip3 install requests
+    pip3 install beautifulsoup4
+    pip3 install tldextract
+    pip3 install colorama
+    pip3 install pyfiglet
+    pip3 install dnspython
+    
 
 For Arch Linux:
 
     sudo pacman -Syu
+    sudo pacman -S nmap
     sudo pacman -S python
-    pip install python-nmap
-    pip install python-whois
-    pip install requests
-    pip install beautifulsoup4
-    pip install tldextract
-    pip install colorama
-    pip install pyfiglet
+    sudo pacman -S python-pip
+    pip3 install nmap
+    pip3 install whois
+    pip3 install requests
+    pip3 install beautifulsoup4
+    pip3 install tldextract
+    pip3 install colorama
+    pip3 install pyfiglet
+    pip3 install dnspython
+
 
 ScannerX Framework Description:
 
@@ -79,7 +87,9 @@ Executes a SQLmap scan on the specified target to detect SQL injection vulnerabi
 Prompts the user to enter the target domain.
 Fetches and displays information about the target domain, including login pages, robots.txt content, and subdomains.
 
-6) Exit (Option 99):
+6) Menu option number 6 performs an Open Source Intelligence (OSINT) analysis for the specified domain. Specifically, the user is prompted to enter a domain name (without protocol and extension), and the program checks the availability of various domain extensions. It provides information on which extensions are already registered and which ones are still available. The analysis involves the use of parallel threads to enhance efficiency, and each result is displayed on the screen, indicating whether the domain is registered or available.
+
+7) Exit (Option 99):
 Exits the program.
 If ProtonVPN was activated at the beginning, it also deactivates ProtonVPN.
 
