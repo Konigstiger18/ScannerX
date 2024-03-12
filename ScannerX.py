@@ -355,16 +355,9 @@ def cerca_dominio(nome_dominio):
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = [executor.submit(verifica_dominio, f"{nome_dominio}{estensione}") for estensione in estensioni]
+        for future in futures:
+            future.result()
 
-    for future in futures:
-        future.result()
-
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        futures = [executor.submit(verifica_dominio, f"{nome_dominio}{estensione}") for estensione in estensioni]
-
-    for future in futures:
-        future.result()
-        
 def verifica_dominio(dominio):
     try:
         answers = dns.resolver.resolve(dominio, 'A')
@@ -373,6 +366,7 @@ def verifica_dominio(dominio):
         print(f"The domain {dominio} is {Fore.RED}available{Fore.RESET}.")
     except dns.exception.DNSException:
         print(f"{Fore.RED}Error{Fore.RESET} verifying domain {dominio}.")
+
 
 def show_menu():
     print("Menu:")
