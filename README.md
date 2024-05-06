@@ -7,7 +7,7 @@ For Debian/Ubuntu/Kali Linux:
     sudo apt-get install python3
     sudo apt-get install python3-pip
     pip3 install nmap
-    pip3 install whois
+    pip3 install python-whois
     pip3 install requests
     pip3 install beautifulsoup4
     pip3 install tldextract
