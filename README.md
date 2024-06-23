@@ -1,36 +1,12 @@
 Requirements:
+Install the requirements with
+                    
+    python3 installer.py
 
-For Debian/Ubuntu/Kali Linux:
+Run the program with 
 
-    sudo apt-get update
-    sudo apt-get install nmap
-    sudo apt-get install python3
-    sudo apt-get install python3-pip
-    pip3 install nmap
-    pip3 install python-whois
-    pip3 install requests
-    pip3 install beautifulsoup4
-    pip3 install tldextract
-    pip3 install colorama
-    pip3 install pyfiglet
-    pip3 install dnspython
-    
-
-For Arch Linux:
-
-    sudo pacman -Syu
-    sudo pacman -S nmap
-    sudo pacman -S python
-    sudo pacman -S python-pip
-    pip3 install nmap
-    pip3 install whois
-    pip3 install requests
-    pip3 install beautifulsoup4
-    pip3 install tldextract
-    pip3 install colorama
-    pip3 install pyfiglet
-    pip3 install dnspython
-
+    python3 control_panel.py
+or using desktop shortcut created by installer script
 
 ScannerX Framework Description:
 
@@ -89,7 +65,7 @@ Fetches and displays information about the target domain, including login pages,
 
 6) Menu option number 6 performs an Open Source Intelligence (OSINT) analysis for the specified domain. Specifically, the user is prompted to enter a domain name (without protocol and extension), and the program checks the availability of various domain extensions. It provides information on which extensions are already registered and which ones are still available. The analysis involves the use of parallel threads to enhance efficiency, and each result is displayed on the screen, indicating whether the domain is registered or available.
 
-7) Exit (Option 99):
-Exits the program.
-If ProtonVPN was activated at the beginning, it also deactivates ProtonVPN.
+7) The XSS scanning module in Python detects and reports potential Cross-Site Scripting vulnerabilities in web pages using predefined payloads and provides detailed output on vulnerability detection. It is a fundamental tool for improving the security of web applications.
 
+8) Exit (Option 99):
+Exits the program.
