@@ -1,0 +1,13 @@
+
+python-nmap
+sockets
+python-whois
+requests
+beautifulsoup4
+tldextract
+colorama
+pyfiglet
+dnspython
+aiohttp
+asyncio
+urljoin
